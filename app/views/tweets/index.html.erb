@@ -14,9 +14,9 @@
 
 <% @tweets.each do |tweet| %>
   <tr>
-    <td><%= tweet.account.username %></td>
-    <td><%= image_tag tweet.profile.profile_image_url %>
-        <%= tweet.profile.screen_name %></td>
+    <td><%= tweet.account.try :username %></td>
+    <td><%= image_tag tweet.profile.try :profile_image_url %>
+        <%= tweet.profile.try :screen_name %></td>
     <td><%= tweet.text %></td>
     <td><%= tweet.created_at %></td>
     <td><%= raw tweet.source %></td>
